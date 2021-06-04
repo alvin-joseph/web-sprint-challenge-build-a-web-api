@@ -20,7 +20,7 @@ async function validateProjectId(req, res, next) {
 }
 
 function validateProjectPost(req, res, next) {
-    const { name, description } = req.body;
+    const { name, description, completed } = req.body;
     if (!name || !description) {
       res.status(400).json({
         message: "Please provide name and description for the post"
@@ -28,6 +28,7 @@ function validateProjectPost(req, res, next) {
     } else {
       req.name = name.trim();
       req.description = description.trim();
+      req.completed = completed;
       next();
     }
 }

@@ -30,7 +30,8 @@ router.get('/:id', validateProjectId, (req, res) => {
 router.post('/', validateProjectPost, (req, res, next) => {
     Project.insert({ 
         name: req.name,
-        description: req.description
+        description: req.description,
+        completed: req.completed
     })
       .then(newUser => {
         res.status(201).json(newUser);
@@ -42,7 +43,8 @@ router.post('/', validateProjectPost, (req, res, next) => {
 router.put('/:id', validateProjectId, validateProjectPost, (req, res, next) => {
     Project.update(req.params.id, { 
         name: req.name,
-        description: req.description
+        description: req.description,
+        completed: req.completed
     })
       .then(updatedUser => {
           res.json(updatedUser);
@@ -54,7 +56,7 @@ router.put('/:id', validateProjectId, validateProjectPost, (req, res, next) => {
 router.delete('/:id', validateProjectId, async (req, res, next) => {
     try {
       await Project.remove(req.params.id);
-      res.json({ message: "The post has been deleted"});
+      res.status(400).json({ message: "The post has been deleted"});
     }
     catch (err){
       next(err);

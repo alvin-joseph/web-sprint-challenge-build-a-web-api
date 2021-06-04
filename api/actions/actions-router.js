@@ -32,7 +32,8 @@ router.post('/', validateActionPost, async (req, res, next) => {
       const result = await Action.insert({
         project_id: req.project_id,
         description: req.description,
-        notes: req.notes
+        notes: req.notes,
+        completed: req.completed
       });
       res.status(201).json(result);
     } catch (err) {
@@ -45,7 +46,8 @@ router.put('/:id', validateActionId, validateActionPost, (req, res, next) => {
     Action.update(req.params.id, { 
         project_id: req.project_id,
         description: req.description,
-        notes: req.notes
+        notes: req.notes,
+        completed: req.completed
     })
       .then(updatedAction => {
           res.json(updatedAction);
