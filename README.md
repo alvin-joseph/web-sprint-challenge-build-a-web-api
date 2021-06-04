@@ -159,7 +159,21 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+
+CORS stands for Cross-Origin Resource Sharing. It is a mechanism to allow or restrict requested resources on the web server depending on where the HTTP request was initiated. With express you may have a server running on a port and you may have a react server running on another port. CORS will allow communication between the two servers. 
+
 1. Understand and explain the use of Middleware.
+
+Middleware is a set of functions that extend software. We use it to add features to express. Most code we write in express, including route handles, is middleware. They are excecuted in the order they are introduced. We have built-in, third party, and custom middleware we can use. 
+
 1. The basic principles of the REST architectural style.
+
+Everything is a resource, each resource is accessible via a unique URI, resources can have multiple representations, communication happens over a stateless protocol(HTTP), and resource management happens via HTTP methods. 
+
 1. Understand and explain the use of Express Routers.
+
+It is a way for us to map incoming requests to servers from clients to the appropriate request handler function. It is based off of the URL and type of HTTP Method used. This keeps everything in our servers organized and clean. This also helps us define our CRUD Operations within our Server side applications. 
+
 1. Describe tooling used to manually test the correctness of an API.
+
+There are multiple tools we can use to manually test APIs. Some of the most common ones are Postman, HTTPie, and Insomnia. We are able to submit a request using an HTTP Method and we are able to see the response from that request. This allows us to verify if our code is setup correctly. 
